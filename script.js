@@ -63,10 +63,17 @@ function getResults () {
       }
    }
    
+   let x = parseInt(JSON.parse(localStorage.getItem('expense')));
+   let y = parseInt(JSON.parse(localStorage.getItem('income')));
+   console.log(x);
+   console.log(y);
+   let incomeResult = isNaN(y) ? 0 : parseInt(JSON.parse(localStorage.getItem('income'))); 
+   let expenseResult = isNaN(x) ? 0 : parseInt(JSON.parse(localStorage.getItem('expense')));
+
    
-   incomeTotal.innerHTML = parseInt(JSON.parse(localStorage.getItem('income')));
-   expenseTotal.innerHTML = parseInt(JSON.parse(localStorage.getItem('expense')));
-   amountTotal.innerHTML = parseInt(JSON.parse(localStorage.getItem('income'))) - parseInt(JSON.parse(localStorage.getItem('expense')));
+   incomeTotal.innerHTML = incomeResult;
+   expenseTotal.innerHTML = expenseResult;
+   amountTotal.innerHTML = incomeResult - expenseResult;
 
    document.getElementById("detail").value = "";
    document.getElementById("amount").value = "";
@@ -121,6 +128,5 @@ function resetTableData(){
   incomeTotal.innerHTML = parseInt(JSON.parse(localStorage.getItem('income')));
   expenseTotal.innerHTML = parseInt(JSON.parse(localStorage.getItem('expense')));
   amountTotal.innerHTML = parseInt(JSON.parse(localStorage.getItem('income'))) - parseInt(JSON.parse(localStorage.getItem('expense')));
-
 
 })();
